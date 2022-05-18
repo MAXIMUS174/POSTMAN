@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "548fbb54-fcbd-4999-a775-a3a52beeb6c1",
+		"name": "qa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ПЕРВЫЙ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Сокращенный код person name age salary\r",
+							"// const(что это?) var(что это?) jsonData = pm.response.json();\r",
+							"\r",
+							"let person = {\r",
+							"\r",
+							"\r",
+							"\r",
+							" \"age\": \"24\",\r",
+							"    \"family\": {\r",
+							"        \"children\": [\r",
+							"            [\r",
+							"                \"Alex\",\r",
+							"                24\r",
+							"            ],\r",
+							"            [\r",
+							"                \"Kate\",\r",
+							"                12\r",
+							"            ]\r",
+							"        ],\r",
+							"        \"u_salary_1_5_year\": 4000\r",
+							"    },\r",
+							"    \"name\": \"Maxim\",\r",
+							"    \"salary\": 1000\r",
+							"}\r",
+							"\r",
+							"let item_1 = \"Alex\"\r",
+							"\r",
+							"pm.test (\"item_1 TEST\", function () {\r",
+							"    pm.expect(item_1).to.equal('Alex')\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test (\"item_2 person\", function () {\r",
+							"    pm.expect(person.age).to.equal('24')\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test (\"item_3 person\", function () {\r",
+							"    pm.expect(person.family.children [0][1]).to.equal(24)\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test (\"item_4 person\", function () {\r",
+							"    pm.expect(person).to.have.property('name')\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test (\"item_5 person\", function () {\r",
+							"    pm.expect(person).to.deep.include({\"salary\": 1000})\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test (\"item_6 person\", function () {\r",
+							"    pm.expect(person.family.children[1]).to.deep.include(12)\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test (\"item_7 person\", function () {\r",
+							"    pm.expect(person.family.children[1]).to.be.a('Array')\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test (\"item_8 person\", function () {\r",
+							"    pm.expect(person.family.children[1]).to.be.an('Array').that.include(12)\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "age",
+							"value": "24",
+							"type": "default"
+						},
+						{
+							"key": "salary",
+							"value": "1000",
+							"type": "default"
+						},
+						{
+							"key": "name",
+							"value": "Maxim",
+							"type": "default"
+						},
+						{
+							"key": "auth_token",
+							"value": "/s34lfgbj/Vadim/jjd909/12242kjkWpqc322823r23r3r457271evny",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://162.55.220.72:5005/get_test_user",
+					"protocol": "http",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5005",
+					"path": [
+						"get_test_user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "date",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const users = [\r",
+							"    {\r",
+							"        firstName: 'John',\r",
+							"        lastName: 'Caper',\r",
+							"        phone: '7436676737634',\r",
+							"        registrationDate: '12.10.2021'\r",
+							"    },\r",
+							"    {\r",
+							"        firstName: 'Clark',\r",
+							"        lastName: 'Kent',\r",
+							"        phone: '4346676737634',\r",
+							"        registrationDate: '16.09.2021'\r",
+							"    },\r",
+							"    {\r",
+							"        firstName: 'Tony',\r",
+							"        lastName: 'Stark',\r",
+							"        phone: '7436698337634',\r",
+							"        registrationDate: '11.10.2021'\r",
+							"    },\r",
+							"    {\r",
+							"        firstName: 'Bruce',\r",
+							"        lastName: 'Wayne',\r",
+							"        phone: '1111176737634',\r",
+							"        registrationDate: '09.10.2021'\r",
+							"    },\r",
+							"    {\r",
+							"        firstName: 'Star',\r",
+							"        lastName: 'Lord',\r",
+							"        phone: '7439374737634',\r",
+							"        registrationDate: '10.10.2021'\r",
+							"    },\r",
+							"    {\r",
+							"        firstName: 'Kate',\r",
+							"        lastName: 'Bishop',\r",
+							"        phone: '7436693647634',\r",
+							"        registrationDate: '11.10.2021'\r",
+							"    },\r",
+							"    {\r",
+							"        firstName: 'Jerry',\r",
+							"        lastName: 'James',\r",
+							"        phone: '7409048737634',\r",
+							"        registrationDate: '10.10.2021'\r",
+							"    },\r",
+							"    {\r",
+							"        firstName: 'Jeremy',\r",
+							"        lastName: 'Clarkson',\r",
+							"        phone: '743667600289334',\r",
+							"        registrationDate: '16.10.2020'\r",
+							"    },\r",
+							"    {\r",
+							"        firstName: 'Robert',\r",
+							"        lastName: 'Patrik',\r",
+							"        phone: '7436676730093',\r",
+							"        registrationDate: '10.10.2020'\r",
+							"    },\r",
+							"    {\r",
+							"        firstName: 'Jonny',\r",
+							"        lastName: 'Sins',\r",
+							"        phone: '74923982737634',\r",
+							"        registrationDate: '01.01.2021'\r",
+							"    },\r",
+							"    {\r",
+							"        firstName: 'Andrew',\r",
+							"        lastName: 'Garfield',\r",
+							"        phone: '743667988344',\r",
+							"        registrationDate: '09.10.2019'\r",
+							"    },\r",
+							"    {\r",
+							"        firstName: 'Jane',\r",
+							"        lastName: 'Foster',\r",
+							"        phone: '74368783427634',\r",
+							"        registrationDate: '09.10.2019'\r",
+							"    },\r",
+							"    {\r",
+							"        firstName: 'Rick',\r",
+							"        lastName: 'Smith',\r",
+							"        phone: '700000037634',\r",
+							"        registrationDate: '12.10.2021'\r",
+							"    },\r",
+							"];\r",
+							"\r",
+							"let item_1 = 'registrationDate'\r",
+							"pm.test('item_1 registrationDate', function () {\r",
+							"    pm.expect(registrationDate).to.equal(Date)\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://162.55.220.72:5005/get_test_user",
+					"protocol": "http",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5005",
+					"path": [
+						"get_test_user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
